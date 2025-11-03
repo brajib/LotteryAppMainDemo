@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">LotteryApp</string>
-    <string name="enter_your_name">Enter Your Name</string>
-    <string name="_0000">0000</string>
-    <string name="lottery_number_is">Lottery Number is :</string>
-    <string name="generate_random_lottery_number">Generate Random Lottery Number</string>
-</resources>
