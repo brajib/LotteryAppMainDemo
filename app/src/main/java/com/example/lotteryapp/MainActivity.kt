@@ -2,6 +2,7 @@ package com.example.lotteryapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,9 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     // ViewModel to store and manage UI-related data
     private val viewModel: LotteryViewModel by viewModels()
+    companion object {
+        private const val TAG = "MainActivityLifecycle"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG,"Oncreate called")
         // Only call edge-to-edge if not running under Robolectric
         val underTest = isRunningUnitTest()
         if (!underTest) {
@@ -57,6 +62,35 @@ class MainActivity : AppCompatActivity() {
                 binding.editText2.error = "Please enter your name"
             }
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy called")
     }
     internal fun isRunningUnitTest(): Boolean {
         return try {
